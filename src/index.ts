@@ -1,16 +1,17 @@
-class Namer {
-  private firstNames: string[];
+export default class Namer {
+  private firstNames: number[];
   private startCharCode: number;
   private endCharCode: number;
 
   constructor() {
     this.firstNames = [
-      '김', '이', '박', '최', '정', '강', '조', '윤', '장', '임', '오', '한',
-      '신', '서', '권', '황', '안', '송', '류', '홍', '전', '문', '손', '양'
+      44608, 51060, 48149, 52572, 51221, 44053, 51312, 50980, 51109, 51076,
+      50724, 54620, 49888, 49436, 44428, 54889, 50504, 49569, 47448, 54861,
+      51204, 47928, 49552, 50577
     ];
 
-    this.startCharCode = '가'.charCodeAt(0);
-    this.endCharCode = '힣'.charCodeAt(0);
+    this.startCharCode = 44032;
+    this.endCharCode = 55203;
   }
 
   private getRandomInt(min: number, max: number): number {
@@ -19,7 +20,7 @@ class Namer {
 
   private getFirstName(): string {
     let index: number = this.getRandomInt(0, this.firstNames.length);
-    return this.firstNames[index];
+    return String.fromCharCode(this.firstNames[index]);
   }
 
   private getMidName(): string {
@@ -33,8 +34,9 @@ class Namer {
   }
 
   public generate(): string {
-    return this.getFirstName() + this.getMidName() + this.getLastName();
+    let unicodeName: string = this.getFirstName() + this.getMidName() + this.getLastName();
+    return unicodeName;
   }
 }
 
-export const namer = new Namer();
+window.namer = new Namer();
