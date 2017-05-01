@@ -1,0 +1,27 @@
+{
+  "name": "korean-name-generator",
+  "version": "1.0.0",
+  "description": "한글 랜덤이름 생성기",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc; node node_modules/browserify/bin/cmd.js build/index.js -o build/namer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haandol/korean-name-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haandol/korean-name-generator/issues"
+  },
+  "homepage": "https://github.com/haandol/korean-name-generator#readme",
+  "devDependencies": {
+    "@types/node": "^7.0.14"
+  },
+  "dependencies": {
+    "browserify": "^14.3.0",
+    "typescript": "^2.3.2"
+  }
+}
