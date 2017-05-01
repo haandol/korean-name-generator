@@ -37,4 +37,4 @@ class Namer {
   }
 }
 
-export const namer = new Namer;
+export const namer = new Namer();
