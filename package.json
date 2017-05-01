@@ -4,7 +4,7 @@
   "description": "한글 랜덤이름 생성기",
   "main": "index.js",
   "scripts": {
-    "start": "tsc; node node_modules/browserify/bin/cmd.js build/index.js -o build/namer.js",
+    "build": "tsc; node node_modules/browserify/bin/cmd.js build/index.js -o build/namer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
