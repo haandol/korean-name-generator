@@ -10,9 +10,11 @@ var Namer = /** @class */ (function () {
             51204, 47928, 49552, 50577
         ];
         this.firstCount = this.firstNames.length;
-        this.acceptableCho = [0, 2, 3, 5, 6, 7, 9, 11, 12, 14, 15, 16, 17, 18];
-        this.acceptableJung = [0, 1, 4, 5, 6, 8, 9, 11, 14, 17, 18, 19, 20];
         this.acceptableJong = [0, 1, 4, 8, 16, 17, 19, 21];
+        this.acceptableJung = [0, 1, 2, 4, 5, 6, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19, 20];
+        this.acceptableCho = [0, 2, 3, 5, 6, 7, 9, 11, 12, 14, 15, 16, 17, 18];
+        this.startCharCode = 44032;
+        this.endCharCode = 55203;
     }
     Namer.prototype.getRandomInt = function (min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -23,12 +25,15 @@ var Namer = /** @class */ (function () {
     };
     Namer.prototype.getRandomChar = function () {
         var base = 0xAC00;
-        var jong = base + _.sample(this.acceptableJong);
-        console.debug('jong', String.fromCharCode(jong));
-        var jung = jong + 28 * _.sample(this.acceptableJung);
-        console.debug('jung', String.fromCharCode(jung));
-        var cho = jung + 28 * 21 * _.sample(this.acceptableCho);
-        console.debug('cho', String.fromCharCode(cho));
+        var t = _.sample(this.acceptableJong);
+        var jong = base + t;
+        console.log('jong', t, String.fromCharCode(jong));
+        t = _.sample(this.acceptableJung);
+        var jung = jong + 28 * 21 * t;
+        console.log('jung', t, String.fromCharCode(jung));
+        t = _.sample(this.acceptableCho);
+        var cho = jung + 21 * 28 * t;
+        console.log('cho', t, String.fromCharCode(cho));
         return String.fromCharCode(cho);
     };
     Namer.prototype.generate = function () {
