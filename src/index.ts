@@ -45,4 +45,4 @@ export default class Namer {
   }
 }
 
-window.namer = new Namer();
+(window as any).namer = new Namer();
